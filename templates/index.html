@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>MyLib</title>
-    </head>
-    <body>
-      <h1>Список книг по Python</h1>
-    </body>
+<head>
+  <title>MyLib</title>
+</head>
+<body>
+  <h1>Список книг по Python</h1>
+  {% for bk in books %}
+  <p>
+    {{bk.title}}
+  </p>
+  {% endfor %}
+</body>
 </html>

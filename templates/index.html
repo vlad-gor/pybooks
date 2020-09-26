@@ -1,14 +1,32 @@
 <!DOCTYPE html>
+
+{% load static %}
+
 <html>
+
 <head>
   <title>MyLib</title>
+  <link rel="stylesheet" href='{% static "bootstrap-4.3.1/css/bootstrap.css" %}' />
+  <script src='{% static "jquery-3.4.1.js" %}'></script>
+  <script src='{% static "bootstrap-4.3.1/js/bootstrap.js" %}'></script>
 </head>
+
 <body>
-  <h1>Список книг по Python</h1>
-  {% for bk in books %}
-  <p>
-    {{bk.title}}
-  </p>
-  {% endfor %}
+  <div class="container">
+    <h1 style="text-align: center;">Список книг по Python</h1>
+    <div class="row" id='bbk' style="margin-top: 50px;">
+      {% for bk in books %}
+      <div class="col-lg-3 col-md-4 col-6 thumb">
+        <a target="_blank" href="static/{{bk.link}}.pdf">
+           <img class="img-fluid" src='static/{{bk.link}}.png'/>
+           <p class="text-warning" style="text-align:center; font-size:18px;">
+                <b><i>{{bk.title}}</i></b>
+            </p>
+        </a>
+    </div>
+      {% endfor %}
+    </div>
+  </div>
 </body>
+
 </html>

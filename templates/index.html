@@ -14,16 +14,26 @@
 <body>
   <div class="container">
     <h1 style="text-align: center;">Список книг</h1>
+    <form name="select_tags_form" method="post">
+      {% csrf_token %}
+      <select name="select_tags">
+        {% for tag in tags %}
+        <option value="{{tag}}">{{tag}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" name="submit"/>
+    </form>
+
     <div class="row" id='bbk' style="margin-top: 50px;">
       {% for bk in books %}
       <div class="col-lg-3 col-md-4 col-6 thumb">
         <a target="_blank" href="static/books/{{bk.link}}.pdf">
-           <img class="img-fluid" src='static/books/{{bk.link}}.png'/>
-           <p class="text-warning" style="text-align:center; font-size:18px;">
-                <b><i>{{bk.title}}</i></b>
-            </p>
+          <img class="img-fluid" src='static/books/{{bk.link}}.png' />
+          <p class="text-warning" style="text-align:center; font-size:18px;">
+            <b><i>{{bk.title}}</i></b>
+          </p>
         </a>
-    </div>
+      </div>
       {% endfor %}
     </div>
   </div>

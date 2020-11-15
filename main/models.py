@@ -7,6 +7,7 @@ class Book(models.Model):
     year = models.IntegerField()
     publisher = models.CharField(max_length=100)
     link = models.CharField(max_length=500)
+    tags = models.CharField(max_length=200)
 
     def __str__(self):
         return "{} / {}".format(self.author,self.title)
